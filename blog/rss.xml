@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>Netkit Docs Blog</title>
+        <link>https://netkit-jh.github.io/blog</link>
+        <description>Netkit Docs Blog</description>
+        <lastBuildDate>Fri, 25 Dec 2020 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Netkit Version 1.0 Released!]]></title>
+            <link>https://netkit-jh.github.io/blog/netkitv1release</link>
+            <guid>netkitv1release</guid>
+            <pubDate>Fri, 25 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Netkit V1 Release]]></description>
+        </item>
+    </channel>
+</rss>
