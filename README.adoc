@@ -8,6 +8,19 @@ This repo hosts the source code for https://netkit-jh.github.io which covers doc
 
 To contribute to the website please fork this repository and submit your changes as a pull request.
 
+=== Dev Environment
+
+To run a development version of the site, first install necessary packages with:
+
+....
+> yarn install
+....
+
+Then run with:
+....
+> yarn run start
+....
+
 === Blog Posts
 
 To add a blog post create a markdown file in the `blog` directory with the naming convention *YYYY-MM-DD-BLOG-NAME.md*.
@@ -18,6 +31,17 @@ For information on formatting of blog posts, see the documentation link:https://
 
 To add a page to the docs, create a markdown file in the `docs` directory (and in the relevant subdirectory if necessary). 
 For guidance on markdown formatting see the documentation link:https://v2.docusaurus.io/docs/markdown-features[here].
+
+=== Publishing
+
+If you have contributor access to the repo you can publish changes to the production site. To do this run
+
+....
+GIT_USER=<GIT_USER> \
+  CURRENT_BRANCH=master \
+  USE_SSH=true \
+  yarn run publish-gh-pages
+....
 
 == ToDo
 
