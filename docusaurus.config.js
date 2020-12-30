@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'Netkit Docs',
+  title: 'Netkit-JH Docs',
   tagline: 'Documentation about using, developing and debugging netkit.',
   url: 'https://netkit-jh.github.io',
   baseUrl: '/',

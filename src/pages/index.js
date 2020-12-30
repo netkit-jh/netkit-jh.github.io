@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 const features = [
   {
     title: 'What is Netkit?',
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
+    imageUrl: 'img/undraw_network.svg',
     description: (
       <>
         Netkit is a project for creating virtual network devices (routers, switches, servers etc)
@@ -22,7 +22,7 @@ const features = [
   },
   {
     title: 'Development of netkit-jh',
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
+    imageUrl: 'img/undraw_dev.svg',
     description: (
       <>
         We have guides on getting started with development and how to contribute
@@ -32,7 +32,7 @@ const features = [
   },
   {
     title: 'Netkit Alternatives',
-    imageUrl: 'img/undraw_docusaurus_react.svg',
+    imageUrl: 'img/undraw_container.svg',
     description: (
       <>
         <a href='https://www.kathara.org/'>Kathara</a> is an alternative to netkit
@@ -71,7 +71,7 @@ function Home() {
   return (
     <Layout
       title={``}
-      description="Description will go into a meta tag in <head />">
+      description="Documentation for using and developing netkit-jh.">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>

@@ -38,7 +38,8 @@ If you have contributor access to the repo you can publish changes to the produc
 
 ....
 GIT_USER=<GIT_USER> \
-  CURRENT_BRANCH=master \
+  CURRENT_BRANCH=main \
+  DEPLOYMENT_BRANCH=gh-pages \
   USE_SSH=true \
   yarn run deploy
 ....
