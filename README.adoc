@@ -40,7 +40,7 @@ If you have contributor access to the repo you can publish changes to the produc
 GIT_USER=<GIT_USER> \
   CURRENT_BRANCH=master \
   USE_SSH=true \
-  yarn run publish-gh-pages
+  yarn run deploy
 ....
 
 == ToDo
