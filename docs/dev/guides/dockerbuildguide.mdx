@@ -78,7 +78,7 @@ $ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="build-core" -it 
 To clean up the files used in the build process run:
 
 ```bash
-$ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="clean" -it netkit-builder-deb
+$ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="mrproper" -it netkit-builder-deb
 
 ```
   </TabItem>
