@@ -21,30 +21,30 @@ const features = [
     ),
   },
   {
-    title: 'Development of netkit-jh',
+    title: 'Development of Netkit-JH',
     imageUrl: 'img/undraw_dev.svg',
     description: (
       <>
         We have guides on getting started with development and how to contribute
-        to the netkit projects on github.
+        to the Netkit projects on github.
       </>
     ),
   },
   {
-    title: 'Netkit Alternatives',
+    title: 'Netkit-JH Alternatives',
     imageUrl: 'img/undraw_container.svg',
     description: (
       <>
-        <a href='https://www.kathara.org/'>Kathara</a> is an alternative to netkit
+        <a href='https://www.kathara.org/'>Kathara</a> is an alternative to Netkit
         which uses docker containers rather than Usermode Linux instances for 'virtualised'
         network devices. This project is maintained by the original developers of the
-        netkit project.
+        Netkit project.
         <br/>
         We recommend that unless you have a requirement for Usermode Linux, you
-        should look at Kathara before attempting to use netkit-jh. Additionally,
-        the original <a href='https://www.netkit.org/'>netkit</a> and
-        <a href='https://netkit-ng.github.io/'> netkit-ng</a> projects contain
-        earlier filesystems and kernels than those of netkit-jh.
+        should look at Kathara before attempting to use Netkit-JH. Additionally,
+        the original <a href='https://www.netkit.org/'>Netkit</a> and
+        <a href='https://netkit-ng.github.io/'> Netkit-NG</a> projects contain
+        earlier filesystems and kernels than those of Netkit-JH.
       </>
     ),
   },

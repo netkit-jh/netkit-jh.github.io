@@ -60,7 +60,7 @@ module.exports = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} Netkit Docs. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Netkit-JH Docs. Built with Docusaurus.`,
     },
   },
   presets: [
@@ -70,12 +70,12 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
-            'https://github.com/netkit-jh/netkit-jh.github.io/edit/master/',
+            'https://github.com/netkit-jh/netkit-jh.github.io/edit/main/',
         },
         blog: {
           showReadingTime: true,
           editUrl:
-            'https://github.com/netkit-jh/netkit-jh.github.io/edit/master/blog/',
+            'https://github.com/netkit-jh/netkit-jh.github.io/edit/main/blog/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
