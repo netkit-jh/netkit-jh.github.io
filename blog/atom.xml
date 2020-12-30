@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://netkit-jh.github.io/blog</id>
-    <title>Netkit Docs Blog</title>
+    <title>Netkit-JH Docs Blog</title>
     <updated>2020-12-25T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://netkit-jh.github.io/blog"/>
-    <subtitle>Netkit Docs Blog</subtitle>
+    <subtitle>Netkit-JH Docs Blog</subtitle>
     <icon>https://netkit-jh.github.io/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[Netkit Version 1.0 Released!]]></title>
