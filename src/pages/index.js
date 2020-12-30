@@ -14,9 +14,12 @@ const features = [
       <>
         Netkit is a project for creating virtual network devices (routers, switches, servers etc)
         which can be connected to form a full network on a single host machine. This can be useful
-        for running network related experiments or for education. Netkit machines are usermode linux
+        for running network related experiments or for education. Netkit machines are User-mode Linux
         instances which are lightweight and do not require root access to run. To get started have
         a look at the <a href='docs'>Install Guide</a>.
+        <br/>
+        <br/>
+        Netkit-JH is a fork of the Netkit-NG project, which is a fork of the original Netkit project. The Netkit-JH fork aimed to update Netkit-NG which stopped development in 2014 and sought to use a modern Debian distribution and kernel.
       </>
     ),
   },
@@ -26,7 +29,7 @@ const features = [
     description: (
       <>
         We have guides on getting started with development and how to contribute
-        to the Netkit projects on github.
+        to the Netkit project on github.
       </>
     ),
   },
@@ -35,12 +38,13 @@ const features = [
     imageUrl: 'img/undraw_container.svg',
     description: (
       <>
-        <a href='https://www.kathara.org/'>Kathara</a> is an alternative to Netkit
-        which uses docker containers rather than Usermode Linux instances for 'virtualised'
+        <a href='https://www.kathara.org/'>Kathara</a> is an alternative to netkit
+        which uses Docker containers rather than User-mode Linux instances for 'virtualised'
         network devices. This project is maintained by the original developers of the
         Netkit project.
         <br/>
-        We recommend that unless you have a requirement for Usermode Linux, you
+        <br/>
+        We recommend that unless you have a requirement for User-mode Linux, you
         should look at Kathara before attempting to use Netkit-JH. Additionally,
         the original <a href='https://www.netkit.org/'>Netkit</a> and
         <a href='https://netkit-ng.github.io/'> Netkit-NG</a> projects contain
