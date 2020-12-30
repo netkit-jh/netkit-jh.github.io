@@ -4,7 +4,7 @@ module.exports = {
     'Development': [
         'dev/featuresinprogress',
         {
-            'Guides': ['dev/guides/dockerbuild', 'dev/guides/kernelpatches'],
+            'Guides': ['dev/guides/dockerbuild', 'dev/guides/debianbuild', 'dev/guides/kernelpatches'],
             'Current Bugs': [],
         }
     ],

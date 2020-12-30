@@ -11,6 +11,8 @@ The current Netkit-JH build scripts currently rely on being run on a Debian Bull
 
 ## Install Docker
 
+Install docker using the instructions [here](https://docs.docker.com/engine/install/).
+
 
 ## Clone the Netkit Build Repo
 
@@ -72,6 +74,8 @@ $ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="build-core" -it 
 ```
   </TabItem>
   <TabItem value="clean">
+
+To clean up the files used in the build process run:
 
 ```bash
 $ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="clean" -it netkit-builder-deb

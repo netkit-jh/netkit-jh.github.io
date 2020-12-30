@@ -1,0 +1,92 @@
+---
+id: debianbuild
+title: Building Netkit-JH with Debian Bullseye
+sidebar_label: Building with Debian
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Setup a Debian OS
+
+You could install Debian on bare metal but we recommend that you set up a virtual machine for Netkit builds. Install a debian Bullseye VM in a virtualisation platform of your choice (e.g. VirtualBox, VMWare, KVM+QEMU, User-mode Linux... Joking do not use UML).
+
+You should configure the VM to have at least 4GB RAM, 30GB of storage and as much processing power as you can allocate it.
+
+## Install Packages
+
+To install the packages required for building run:
+
+```
+$ sudo apt install git make dpkg-dev debootstrap libreadline-dev
+```
+
+## Download this Repo
+
+To get a local copy of this repo on the vm run:
+
+```bash
+$ git clone https://github.com/netkit-jh/netkit-jh-build.git
+$ cd netkit-jh-build
+```
+
+The following commands assume your current working directory is the root of this repository.
+
+## Running the Build Process
+
+To compile all components of Netkit-JH (the kernel, the filesystem and the core executables) run:
+
+```bash
+$ sudo make
+```
+
+If you would like to build specific components, you can pass commands to `make`. Some examples are shown below:
+
+<Tabs
+  defaultValue="kern"
+  values={[
+    {label: 'Kernel', value: 'kern'},
+    {label: 'Filesystem', value: 'fs'},
+    {label: 'Core', value: 'core'},
+    {label: 'Clean', value: 'clean'},
+  ]}>
+  <TabItem value="kern">
+
+```bash
+$ sudo make build-kernel
+
+```
+
+  </TabItem>
+  <TabItem value="fs">
+
+```bash
+$ sudo make build-fs
+
+```
+
+  </TabItem>
+  <TabItem value="core">
+
+```bash
+$ sudo make build-core
+
+```
+
+  </TabItem>
+  <TabItem value="clean">
+
+To clean up the files used in the build process run:
+
+```bash
+$ sudo make clean
+
+```
+
+  </TabItem>
+</Tabs>
+
+:::caution
+
+The kernel must be built before the filesystem! This is because the kernel modules are copied over to the filesystem as part of the fs build process. If you don't give any arguments to `make` this won't be an issue, but if you decide to make the filesystem with `build-fs` before the kernel has been built, it will not build successfully.
+:::
