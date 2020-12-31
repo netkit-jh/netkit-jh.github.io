@@ -4,4 +4,8 @@ title: Features and Improvements Currently Under Development
 sidebar_label: Upcoming Features
 ---
 
-## Upcoming Features and Improvements
+import IssueCards from "../../src/components/githubIssues.js"
+
+## Enhancements from the Github Issues Tracker
+
+<IssueCards label="enhancement"/>

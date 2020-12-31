@@ -28,8 +28,8 @@ const features = [
     imageUrl: 'img/undraw_dev.svg',
     description: (
       <>
-        We have guides on getting started with development and how to contribute
-        to the Netkit project on github.
+        We have guides on <a href='docs/dev/gettingstarted'>getting started </a>
+        with development and how to contribute to the Netkit project on github.
       </>
     ),
   },
