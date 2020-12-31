@@ -16,6 +16,7 @@ function Badges(props){
     return(
         props.labels.map(label => (
             <span
+                key={label.id}
                 className="badge"
                 style={{backgroundColor: '#' + label.color}}
                 >
@@ -29,6 +30,7 @@ function Badges(props){
 function Issue(props){
     const [content, updateContent] = useState("");
     useEffect(() => {
+        let isMounted = true;
         api({
             url: props.issue.url,
             method: 'get'
@@ -40,6 +42,7 @@ function Issue(props){
       .catch(async (error) => {
         console.log(error);
       })
+      return () => { isMounted = false };
     }, [props.issue]);
     function openLink(){
         var win = window.open(props.issue.html_url, '_blank');
@@ -49,7 +52,7 @@ function Issue(props){
     var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
     d.setUTCSeconds(utcSeconds);
     return(
-        <div class="card-demo" style={{'margin-bottom': '20px'}}>
+        <div class="card-demo" style={{marginBottom: '20px'}}>
           <div class="card issue-card">
             <div class="card__header card-clickable" onClick={openLink}>
               <div class="avatar">
@@ -116,7 +119,7 @@ class IssueCards extends React.Component {
         <div>
             {
             this.state.issues.filter(issue => this.filterIssues(issue)
-            ).map(issue => <Issue issue={issue} />)}
+            ).map(issue => <Issue key={issue.id} issue={issue} />)}
         </div>
         )
     }

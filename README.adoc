@@ -46,13 +46,13 @@ GIT_USER=<GIT_USER> \
 
 == ToDo
 
-* [X] Make logo and favicon
-* [X] Create / find graphics for homepage
+* [*] Make logo and favicon
+* [*] Create / find graphics for homepage
 * [*] Installation Guide
 * [ ] About netkit-jh page
 * [ ] Testing guide (abr lab from scratch and walkthrough)
-* [ ] Upcoming Features Page
-* [X] Building with docker guide
-* [X] Building with bullseye VM guide
-* [ ] Page for each current bug
+* [*] Upcoming Features Page
+* [*] Building with docker guide
+* [*] Building with bullseye VM guide
+* [*] Page for each current bug
 * [ ] add FAQ for common bugs / error messages
