@@ -12,8 +12,8 @@ module.exports = {
     navbar: {
       title: 'Netkit-JH Docs',
       logo: {
-        alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        alt: 'netkit-jh-logo',
+        src: 'img/logo.png',
       },
       items: [
         {

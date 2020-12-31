@@ -14,11 +14,11 @@ If you want to learn how develop and contribute towards Netkit, we recommend you
 
 ## What Can I do to Help?
 
-If you want to help with Netkit-JH development but don't know where to start, have a look at the [Issues](https://github.com/netkit-jh/netkit-jh-build/issues) on github, and at the [Upcoming Features](featuresinprogress) - this contains ideas that we want to add to future versions of Netkit, but have not necessarily started working on.
+If you want to help with Netkit-JH development but don't know where to start, have a look at the [Issues](https://github.com/netkit-jh/netkit-jh-build/issues) on Github, and at the [Upcoming Features](featuresinprogress) - this contains ideas that we want to add to future versions of Netkit, but have not necessarily started working on.
 
 ## Contributing to Netkit-JH
 
-We are currently hosting the source for Netkit-JH on [github](https://github.com/netkit-jh).
+We are currently hosting the source for Netkit-JH on [Github](https://github.com/netkit-jh).
 
 Before making changes you want to contribute, you should fork the repository you want to work on
 (most likely netkit-jh-build). You should make your changes on your fork, then create a pull request
