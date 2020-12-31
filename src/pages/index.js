@@ -86,6 +86,7 @@ function Home() {
                 'button button--outline button--secondary button--lg',
                 styles.getStarted,
               )}
+              style={{color: 'white'}}
               to={useBaseUrl('docs/')}>
               Get Started
             </Link>
