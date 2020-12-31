@@ -24,8 +24,11 @@
   padding: 0 var(--ifm-pre-padding);
 }
 
-.issue-card:hover{
-    cursor: pointer;
+.issue-card:hover {
     transform: scale(1.01);
     box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+}
+
+.card-clickable:hover {
+    cursor: pointer;
 }

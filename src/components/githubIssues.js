@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { setupCache } from 'axios-cache-adapter'
+import ShowMore from 'react-show-more';
+import ReactMarkdown from 'react-markdown'
 
 const cache = setupCache({
   maxAge: 15 * 60 * 1000
@@ -11,8 +13,6 @@ const api = axios.create({
 })
 
 function Badges(props){
-    console.log(props.labels);
-    console.table(props.labels);
     return(
         props.labels.map(label => (
             <span
@@ -27,6 +27,20 @@ function Badges(props){
 
 
 function Issue(props){
+    const [content, updateContent] = useState("");
+    useEffect(() => {
+        api({
+            url: props.issue.url,
+            method: 'get'
+        })
+      .then(async (res) => {
+        const issues = res.data;
+        updateContent(res.data);
+      })
+      .catch(async (error) => {
+        console.log(error);
+      })
+    }, [props.issue]);
     function openLink(){
         var win = window.open(props.issue.html_url, '_blank');
         win.focus();
@@ -36,8 +50,8 @@ function Issue(props){
     d.setUTCSeconds(utcSeconds);
     return(
         <div class="card-demo" style={{'margin-bottom': '20px'}}>
-          <div class="card issue-card" onClick={openLink}>
-            <div class="card__header">
+          <div class="card issue-card">
+            <div class="card__header card-clickable" onClick={openLink}>
               <div class="avatar">
                 <img
                   class="avatar__photo"
@@ -46,14 +60,17 @@ function Issue(props){
                 <div class="avatar__intro">
                   <h4 class="avatar__name">{props.issue.user.login}</h4>
                   <small class="avatar__subtitle">
-                    <p>{d.toString()}</p>
+                    <p>Issue created {d.toLocaleString()}</p>
                   </small>
                 </div>
               </div>
             </div>
             <div class="card__body">
             <Badges labels={props.issue.labels} />
-            <h1>{props.issue.title}</h1>
+            <h1 class="card-clickable" onClick={openLink}>{props.issue.title}</h1>
+            <ShowMore>
+                { content.body ? <ReactMarkdown>{content.body}</ReactMarkdown> : null}
+            </ShowMore>
             </div>
           </div>
         </div>
@@ -75,10 +92,7 @@ class IssueCards extends React.Component {
       .then(async (res) => {
         const issues = res.data;
         this.setState({ issues });
-          console.log("__TEST__");
         var testfiltered = issues.filter(this.filterIssues);
-        console.table(testfiltered);
-          console.log("__END__");
       })
       .catch(async (error) => {
         console.log(error);
@@ -86,7 +100,6 @@ class IssueCards extends React.Component {
     }
 
     filterIssues(issue, index, array){
-       console.log(issue.state);
        if (issue.state != "open"){
            return false;
        } 
