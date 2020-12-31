@@ -10,23 +10,33 @@ const api = axios.create({
   adapter: cache.adapter
 })
 
-function assertIssueType(labels, filterlabel){
-    console.table(labels);
-    labels.forEach(label => {
-        console.log(label.name, filterlabel);
-        if (label.name === filterlabel){
-            console.log("FOUND ENHANCEMENT");
-            return true;
-        }
-    })
-    console.log("NOT ENHANCEMENT");
-    return false;
+function Badges(props){
+    console.log(props.labels);
+    console.table(props.labels);
+    return(
+        props.labels.map(label => (
+            <span
+                className="badge"
+                style={{backgroundColor: '#' + label.color}}
+                >
+                {label.name}
+            </span>
+        ))
+    )
 }
 
+
 function Issue(props){
+    function openLink(){
+        var win = window.open(props.issue.html_url, '_blank');
+        win.focus();
+    }
+    var utcSeconds = Date.parse(props.issue.created_at)/1000;
+    var d = new Date(0); // The 0 there is the key, which sets the date to the epoch
+    d.setUTCSeconds(utcSeconds);
     return(
         <div class="card-demo" style={{'margin-bottom': '20px'}}>
-          <div class="card">
+          <div class="card issue-card" onClick={openLink}>
             <div class="card__header">
               <div class="avatar">
                 <img
@@ -36,12 +46,13 @@ function Issue(props){
                 <div class="avatar__intro">
                   <h4 class="avatar__name">{props.issue.user.login}</h4>
                   <small class="avatar__subtitle">
-                    <a href={props.issue.html_url}>{props.issue.html_url}</a>
+                    <p>{d.toString()}</p>
                   </small>
                 </div>
               </div>
             </div>
             <div class="card__body">
+            <Badges labels={props.issue.labels} />
             <h1>{props.issue.title}</h1>
             </div>
           </div>
