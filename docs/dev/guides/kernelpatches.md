@@ -11,15 +11,15 @@ Netkit uses a few kernel patches to apply changes to the kernel before being bui
 To create kernel patches, firstly create two copies of the Linux kernel source code - using the same version that is used in the UML Debian package. Note, replace "5.9" with the kernel version that UML is currently using.
 
 ```
-apt source linux-source-5.9
-mv linux-source-5.9 a
-cp a b
+$ apt source linux-source-5.9
+$ mv linux-source-5.9 a
+$ cp a b
 ```
 
 Now there is two folders with identical source code. Modify the source code within a with whatever changes are required. Once you have modified the code, run this command to produce a patch file:
 
 ```
-diff -urpN a b > 93-tutorial-patch.patch
+$ diff -urpN a b > 93-tutorial-patch.patch
 ```
 
 Once you have a .patch file, move it to `netkit-jh-build/kernel/patches/` and name it appropiately. Also add this file name to the `series` file.

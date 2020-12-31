@@ -27,12 +27,12 @@ what you are running on your system and which commands you are giving root privi
 
 To use the script, first make it executable:
 ```
-> chmod +x install-netkit-VER-jh.sh
+$ chmod +x install-netkit-VER-jh.sh
 ```
 
 Then run:
 ```
-> ./install-netkit-VER-jh.sh
+$ ./install-netkit-VER-jh.sh
 ```
 
 After this has finished, Netkit should be installed.
