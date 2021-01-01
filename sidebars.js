@@ -9,8 +9,10 @@ module.exports = {
             'Guides': [
                 'dev/guides/dockerbuild',
                 'dev/guides/debianbuild',
+                'dev/guides/tcpdump',
+                'dev/guides/fspackages',
                 'dev/guides/kernelpatches',
-                'dev/guides/fspackages'],
+                'dev/guides/creatingtests'],
         }
     ],
   },
