@@ -8,11 +8,12 @@ sidebar_label: Creating Kernel Patches
 
 Netkit uses a few kernel patches to apply changes to the kernel before being built. These kernel patches add additional functionality to the UML kernel to assist the running of Netkit. One example of a kernel patch is the addition of random MAC addresses assigned to network interfaces, created from the machine's name and name of the network interface, making MAC address collisions very rare.
 
-To create kernel patches, firstly create two copies of the Linux kernel source code - using the same version that is used in the UML Debian package. Note, replace "5.9" with the kernel version that UML is currently using.
+To create kernel patches, firstly create two copies of the Linux kernel source code. To retrieve this source code, navigate to `netkit-jh-build/kernel/Makefile` and use the URL available `KERNEL_URL`.
 
 ```
-$ apt source linux-source-5.9
-$ mv linux-source-5.9 a
+$ wget https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-5.10.4.tar.xz
+$ tar xf linux-5.10.4.tar.xz
+$ mv linux-source-5.10.4 a
 $ cp a b
 ```
 
