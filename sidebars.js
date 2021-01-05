@@ -12,7 +12,8 @@ module.exports = {
                 'dev/guides/tcpdump',
                 'dev/guides/fspackages',
                 'dev/guides/kernelpatches',
-                'dev/guides/creatingtests'],
+                'dev/guides/creatingtests',
+                'dev/guides/addingnewconfigs'],
         }
     ],
     'Manpages': [
