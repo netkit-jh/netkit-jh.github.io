@@ -1,6 +1,6 @@
 module.exports = {
   someSidebar: {
-    'Netkit': ['installation', 'testing'],
+    'Netkit': ['installation', 'introduction'],
     'Development': [
         'dev/gettingstarted',
         'dev/featuresinprogress',
