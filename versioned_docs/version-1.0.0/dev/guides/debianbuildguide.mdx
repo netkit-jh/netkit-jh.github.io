@@ -1,39 +1,25 @@
 ---
 id: debianbuild
-title: Building Netkit-JH
-sidebar_label: Building Netkit-JH
+title: Building Netkit-JH with Debian Bullseye
+sidebar_label: Building with Debian
 ---
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Setup Your System for Building Netkit-JH
+## Setup a Debian OS
 
-:::note
-It is no longer necessary to use debian for building Netkit-JH, however it is a good idea to use
-a dev environment separate to your host. If you don't want to set up a vm for this, it might be
-easier to [use docker](dockerbuild)
+You could install Debian on bare metal but we recommend that you set up a virtual machine for Netkit builds. Install a debian Bullseye VM in a virtualisation platform of your choice (e.g. VirtualBox, VMWare, KVM+QEMU, User-mode Linux... Joking do not use UML).
 
-:::
+You should configure the VM to have at least 4GB RAM, 30GB of storage and as much processing power as you can allocate it.
 
-If you use a VM, you should configure the VM to have at least 4GB RAM, 30GB of storage and as much processing power as you can allocate it.
-
-### Install Packages
+## Install Packages
 
 To install the packages required for building run:
 
-```bash
-$ sudo apt install apt-utils git make debootstrap \
-    libreadline-dev init-system-helpers initscripts \
-    insserv bison flex gcc-multilib bc quilt xz-utils \
-    libvdeplug-dev
 ```
-
-If you're not using a debian-based system you may need to find the equivalent of these packages for your distro as they may be named differently.
-
-:::tip
-If a command in the build process fails due to a missing program, have a look in the Dockerfile to see if there are any new packages in the 'apt-install' command which you have not yet installed - with the build process constantly changing we may be adding / removing packages from the build dependencies.
-:::
+$ sudo apt install git make dpkg-dev debootstrap libreadline-dev
+```
 
 ## Download this Repo
 

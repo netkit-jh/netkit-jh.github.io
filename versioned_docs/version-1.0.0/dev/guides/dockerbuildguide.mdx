@@ -7,8 +7,7 @@ sidebar_label: Building with Docker
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-Netkit-JH does not require a specific distro for building, however it is good practice to isolate your development environment from your host. Docker is a good way to do this without the need for a full virtual machine. The main advantage is that you don't need to install all the development tools on your main system - you just pull the docker image.
-
+The current Netkit-JH build scripts currently rely on being run on a Debian Bullseye host. An alternative to creating a full VM for Netkit development is using a docker container based on a Debian Bullseye image.
 
 ## Install Docker
 

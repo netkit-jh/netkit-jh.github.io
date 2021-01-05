@@ -1,0 +1,69 @@
+{
+  "version-1.0.0/someSidebar": [
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Netkit",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-1.0.0/installation"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/testing"
+        }
+      ]
+    },
+    {
+      "collapsed": true,
+      "type": "category",
+      "label": "Development",
+      "items": [
+        {
+          "type": "doc",
+          "id": "version-1.0.0/dev/gettingstarted"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/dev/featuresinprogress"
+        },
+        {
+          "type": "doc",
+          "id": "version-1.0.0/dev/currentbugs"
+        },
+        {
+          "collapsed": true,
+          "type": "category",
+          "label": "Guides",
+          "items": [
+            {
+              "type": "doc",
+              "id": "version-1.0.0/dev/guides/dockerbuild"
+            },
+            {
+              "type": "doc",
+              "id": "version-1.0.0/dev/guides/debianbuild"
+            },
+            {
+              "type": "doc",
+              "id": "version-1.0.0/dev/guides/tcpdump"
+            },
+            {
+              "type": "doc",
+              "id": "version-1.0.0/dev/guides/fspackages"
+            },
+            {
+              "type": "doc",
+              "id": "version-1.0.0/dev/guides/kernelpatches"
+            },
+            {
+              "type": "doc",
+              "id": "version-1.0.0/dev/guides/creatingtests"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

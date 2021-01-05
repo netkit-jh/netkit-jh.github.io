@@ -7,8 +7,8 @@ module.exports = {
         'dev/currentbugs',
         {
             'Guides': [
-                'dev/guides/dockerbuild',
                 'dev/guides/debianbuild',
+                'dev/guides/dockerbuild',
                 'dev/guides/tcpdump',
                 'dev/guides/fspackages',
                 'dev/guides/kernelpatches',

@@ -18,7 +18,7 @@ function Badges(props){
             <span
                 key={label.id}
                 className="badge"
-                style={{backgroundColor: '#' + label.color}}
+                style={{backgroundColor: '#' + label.color, marginLeft: 4}}
                 >
                 {label.name}
             </span>

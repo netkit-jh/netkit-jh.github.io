@@ -24,6 +24,10 @@ module.exports = {
         },
         {to: 'blog', label: 'Blog', position: 'left'},
         {
+            type: 'docsVersionDropdown',
+            position: 'right',
+        },
+        {
           href: 'https://github.com/netkit-jh/netkit-jh-build',
           label: 'GitHub',
           position: 'right',
@@ -71,6 +75,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           editUrl:
             'https://github.com/netkit-jh/netkit-jh.github.io/edit/main/',
+          lastVersion: "current",
         },
         blog: {
           showReadingTime: true,
