@@ -55,7 +55,7 @@ GIT_USER=<GIT_USER> \
 * [*] Building with docker guide
 * [*] Building with bullseye VM guide
 * [*] Page for each current bug
-* [ ] guide for adding a distro (multi distro feature)
-* [ ] man pages
+* [*] guide for adding a distro (multi distro feature)
+* [*] man pages
 * [ ] adding to docs guide
 * [ ] add FAQ for common bugs / error messages

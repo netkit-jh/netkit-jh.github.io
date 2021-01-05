@@ -11,9 +11,11 @@ module.exports = {
                 'dev/guides/dockerbuild',
                 'dev/guides/tcpdump',
                 'dev/guides/fspackages',
+                'dev/guides/add_distro',
                 'dev/guides/kernelpatches',
                 'dev/guides/creatingtests',
-                'dev/guides/addingnewconfigs'],
+                'dev/guides/addingnewconfigs'
+            ],
         }
     ],
     'Manpages': [
