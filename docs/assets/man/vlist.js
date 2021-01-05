@@ -192,6 +192,9 @@ Total consumed memory:    82404 KB (you),    82404 KB (all users).</code></pre>
 <h1>AUTHOR</h1>
 <p><em>vlist</em> script: Massimo Rimondini<br />
 This man page: Massimo Rimondini, Fabio Ricci</p>
+<h1>REPORTING BUGS</h1>
+<p>Report bugs to the Github issues page: https://github.com/netkit-jh/netkit-jh-build/issues</p>
+<p>Please follow the recommended templates when reporting bugs.</p>
 `
 
 const html = ReactHtmlParser(raw);

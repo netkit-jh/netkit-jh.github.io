@@ -52,6 +52,9 @@ Stefano Pettini<br />
 Flavia Picard<br />
 Fabio Ricci</p>
 <p>The Netkit team can be reached at the following address: &lt;contact@netkit.org&gt;. You can also use this address to submit bug reports. Alternatively, you can contact us via the mailing list &lt;netkit.users@dia.uniroma3.it&gt;.</p>
+<h1>REPORTING BUGS</h1>
+<p>Report bugs to the Github issues page: https://github.com/netkit-jh/netkit-jh-build/issues</p>
+<p>Please follow the recommended templates when reporting bugs.</p>
 `
 
 const html = ReactHtmlParser(raw);

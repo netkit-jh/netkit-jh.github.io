@@ -61,6 +61,9 @@ As we don't have an interactive shell we don't know when a command has finished 
 <h1>AUTHOR</h1>
 <p><em>vcommand</em> script: Billy Bromell<br />
 This man page: Billy Bromell</p>
+<h1>REPORTING BUGS</h1>
+<p>Report bugs to the Github issues page: https://github.com/netkit-jh/netkit-jh-build/issues</p>
+<p>Please follow the recommended templates when reporting bugs.</p>
 `
 
 const html = ReactHtmlParser(raw);

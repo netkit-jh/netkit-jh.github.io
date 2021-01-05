@@ -195,6 +195,9 @@ print time.asctime(time.localtime(time.time()));</code></pre>
 <h1>AUTHOR</h1>
 <p>ltest script: Fabio Ricci, Stefano Pettini, Massimo Rimondini<br />
 This man page: Fabio Ricci, Massimo Rimondini</p>
+<h1>REPORTING BUGS</h1>
+<p>Report bugs to the Github issues page: https://github.com/netkit-jh/netkit-jh-build/issues</p>
+<p>Please follow the recommended templates when reporting bugs.</p>
 `
 
 const html = ReactHtmlParser(raw);
