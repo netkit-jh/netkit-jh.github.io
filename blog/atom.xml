@@ -9,8 +9,8 @@
     <icon>https://netkit-jh.github.io/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[An Ode to the Netkit-JH Sponge]]></title>
-        <id>freyablog</id>
-        <link href="https://netkit-jh.github.io/blog/freyablog"/>
+        <id>odetothesponge</id>
+        <link href="https://netkit-jh.github.io/blog/odetothesponge"/>
         <updated>2021-01-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[The Challenge]]></summary>
     </entry>
