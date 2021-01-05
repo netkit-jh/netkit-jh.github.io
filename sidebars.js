@@ -48,5 +48,6 @@ module.exports = {
         'man/netkit-manpage-netkit.conf',
         'man/netkit-manpage-netkit',
     ],
+    'Docs Site': ['website/start', 'website/doc', 'website/blog'],
   },
 };
