@@ -63,5 +63,5 @@ done
 
 ADD_TO_SIDEBAR="${ADD_TO_SIDEBAR}\n],"
 
-echo -e "Finished building manpages. Remember to update sidebars.js with the following:\n\n"
+echo -e "Finished building manpages. Remember to update sidebars.js with the following (unless you want to customise sections):\n\n"
 echo -e "$ADD_TO_SIDEBAR"
