@@ -2,11 +2,18 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://netkit-jh.github.io/blog</id>
     <title>Netkit-JH Docs Blog</title>
-    <updated>2020-12-25T00:00:00.000Z</updated>
+    <updated>2021-01-04T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://netkit-jh.github.io/blog"/>
     <subtitle>Netkit-JH Docs Blog</subtitle>
     <icon>https://netkit-jh.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[An Ode to the Netkit-JH Sponge]]></title>
+        <id>freyablog</id>
+        <link href="https://netkit-jh.github.io/blog/freyablog"/>
+        <updated>2021-01-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The Challenge]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Netkit Version 1.0 Released!]]></title>
         <id>netkitv1release</id>
