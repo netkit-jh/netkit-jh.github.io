@@ -24,7 +24,7 @@ Alternatively if you are able to fix the issue yourself, we encourage you to do 
 If you want to contribute without setting your own testing environment, it is still very easy to write a markdown document! If you [email me](mailto:billy.bromell@warwick.ac.uk) with a [doc](doc) or [blog](blog) post I can put it onto the website for you!
 :::
 
-To run a development version of the site, first [fork the repository](github.com/netkit-jh/netkit-jh.github.io/fork), clone your fork and install necessary packages:
+To run a development version of the site, first [fork the repository](https://github.com/netkit-jh/netkit-jh.github.io/fork), clone your fork and install necessary packages:
 
 ```bash
 $ git clone https://github.com/YOUR_USERNAME/netkit-jh.github.io.git # you can also clone with ssh
