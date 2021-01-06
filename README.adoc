@@ -6,51 +6,14 @@ This repo hosts the source code for https://netkit-jh.github.io which covers doc
 
 == Contributing
 
-To contribute to the website please fork this repository and submit your changes as a pull request.
+Instructions for setting up a dev environment, making posts and making pull requests are on the [site](https://netkit-jh.github.io/docs/website/start).
 
-=== Dev Environment
-
-To run a development version of the site, first install necessary packages with:
-
-....
-> yarn install
-....
-
-Then run with:
-....
-> yarn run start
-....
-
-=== Blog Posts
-
-To add a blog post create a markdown file in the `blog` directory with the naming convention *YYYY-MM-DD-BLOG-NAME.md*.
-
-For information on formatting of blog posts, see the documentation link:https://v2.docusaurus.io/docs/blog[here].
-
-=== Documentation
-
-To add a page to the docs, create a markdown file in the `docs` directory (and in the relevant subdirectory if necessary). 
-For guidance on markdown formatting see the documentation link:https://v2.docusaurus.io/docs/markdown-features[here].
-
-=== Publishing
-
-If you have contributor access to the repo you can publish changes to the production site. To do this run
-
-....
-GIT_USER=<GIT_USER> \
-  CURRENT_BRANCH=main \
-  DEPLOYMENT_BRANCH=gh-pages \
-  USE_SSH=true \
-  yarn run deploy
-....
 
 == ToDo
 
 * [*] Make logo and favicon
 * [*] Create / find graphics for homepage
 * [*] Installation Guide
-* [ ] About netkit-jh page
-* [ ] Introduction (abr lab from scratch and walkthrough)
 * [*] Upcoming Features Page
 * [*] Building with docker guide
 * [*] Building with bullseye VM guide
@@ -58,4 +21,13 @@ GIT_USER=<GIT_USER> \
 * [*] guide for adding a distro (multi distro feature)
 * [*] man pages
 * [*] adding to docs guide
+* [ ] About netkit-jh page
+* [ ] Introduction (abr lab from scratch and walkthrough)
 * [ ] add FAQ for common bugs / error messages
+* [ ] Add Labs section with lab walkthroughs and links to useful resources (maybe worth adding a netkit-jh-labs repo at some point just to host these resources?)
+* [ ] Add github issue templates for docs requests + reporting mistakes.
+* [ ] Add section for explaining how internals of netkit work
+** [ ] vstart
+** [ ] lstart
+** [ ] uml overview
+** [ ] uml without netkit
