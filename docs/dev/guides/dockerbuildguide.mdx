@@ -25,23 +25,52 @@ $ cd netkit-jh-build
 The following commands assume that your working directory
 is the root of this repo.
 
-## Building the Docker Image
-
-First we need to build a docker image which will be used for building Netkit-JH.
+## Pull the Docker Image
 
 ```bash
-$ docker build -t netkit-builder-deb .
+$ docker pull netkitjh/netkit-builder-deb
 ```
 
-This creates an image under the name 'netkit-builder-deb'.
+:::note
+If you are building an older version of Netkit-JH and this image doesn't work, you might want to look for older [tags](https://hub.docker.com/r/netkitjh/netkit-builder-deb/tags).
+:::
 
 ## Running the Build Process in the Docker Image
 
 To compile all components of Netkit-JH (the kernel, the filesystem and the core executables) run:
 
+<Tabs
+  defaultValue="linux"
+  values={[
+    {label: 'Linux', value: 'linux'},
+    {label: 'Windows', value: 'windows'},
+  ]}>
+  <TabItem value="linux">
+
 ```bash
-$ docker run --privileged -v $(pwd):/netkit-build -it netkit-builder-deb
+$ docker run --privileged -v $(pwd):/netkit-build -it netkitjh/netkit-builder-deb
 ```
+  </TabItem>
+  <TabItem value="windows">
+
+N.b. Windows is not frequently tested with Netkit-JH so use at your own risk!
+
+```
+# With CMD
+> docker run --privileged -v %cd%:/netkit-build -it netkitjh/netkit-builder-deb
+
+# With Powershell
+> docker run --privileged -v "$(pwd)":/netkit-build -it netkitjh/netkit-builder-deb
+```
+  </TabItem>
+</Tabs>
+
+:::tip
+You need to pass a volume, mapping the netkit-jh-build directory to /netkit-build in the container. On linux you do this by adding `-v $(pwd):/netkit-build` to the docker container (assuming you are in the netkit-jh-build directory). You can also pass the direcory by full or relative path, but if you are one directory up from netkit-jh-build, you must pass it as `./netkit-jh-build` rather than just `netkit-jh-build`!
+
+The following examples, as with most of these docs, will give linux commands. So make sure to look at the above example for windows and use that for reference when building with docker on windows.
+:::
+
 
 If you would like to pass your own arguments to `make`, you can add `-e MAKE_ARGS=""` to the docker command, with the necessary `make` arguments. Some examples are shown below:
 
@@ -57,21 +86,18 @@ If you would like to pass your own arguments to `make`, you can add `-e MAKE_ARG
 
 ```bash
 $ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="build-kernel" -it netkit-builder-deb
-
 ```
   </TabItem>
   <TabItem value="fs">
 
 ```bash
 $ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="build-fs" -it netkit-builder-deb
-
 ```
   </TabItem>
   <TabItem value="core">
 
 ```bash
 $ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="build-core" -it netkit-builder-deb
-
 ```
   </TabItem>
   <TabItem value="clean">
@@ -80,7 +106,6 @@ To clean up the files used in the build process run:
 
 ```bash
 $ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="mrproper" -it netkit-builder-deb
-
 ```
   </TabItem>
 </Tabs>
@@ -89,3 +114,18 @@ $ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="mrproper" -it ne
 
 The kernel must be built before the filesystem! This is because the kernel modules are copied over to the filesystem as part of the fs build process. If you don't give any MAKE_ARGS this won't be an issue, but if you decide to give `MAKE_ARGS="build-fs"` before the kernel has been built, it will not build successfully.
 :::
+
+## Modifying The Docker Image
+
+If we have missed out a package or something else needs changing in the docker image, you will need to change the Dockerfile, and rebuild the image.
+
+If you manage to fix anything, please let us know by opening an issue on GitHub, or by making a pull request with the changes!
+
+To build the docker image:
+
+```bash
+$ cd netkit-jh-build
+$ docker build -t netkit-builder-deb .
+```
+
+This creates an image under the name 'netkit-builder-deb'.

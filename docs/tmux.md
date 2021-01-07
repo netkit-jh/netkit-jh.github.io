@@ -4,6 +4,10 @@ title: Using Tmux With Netkit-JH
 sidebar_label: Using Tmux
 ---
 
+:::caution
+This feature hasn't been released yet! It should be available in the next release.
+:::
+
 ## Installing Tmux
 
 Tmux is available in most package managers - install with your package manager:
@@ -15,7 +19,7 @@ $ sudo apt install tmux
 
 Or for arch:
 ```
-sudo pacman -S tmux
+$ sudo pacman -S tmux
 ```
 
 ## Configure Netkit to use Tmux
