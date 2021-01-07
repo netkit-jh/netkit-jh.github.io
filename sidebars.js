@@ -1,6 +1,6 @@
 module.exports = {
-  someSidebar: {
-    'Netkit': ['installation', 'introduction'],
+  docsSidebar: {
+    'Netkit': ['installation', 'introduction', 'usingtmux'],
     'Development': [
         'dev/gettingstarted',
         'dev/featuresinprogress',

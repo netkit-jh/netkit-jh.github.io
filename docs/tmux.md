@@ -1,0 +1,118 @@
+---
+id: usingtmux
+title: Using Tmux With Netkit-JH
+sidebar_label: Using Tmux
+---
+
+## Installing Tmux
+
+Tmux is available in most package managers - install with your package manager:
+
+E.g. for Debian / Ubuntu:
+```
+$ sudo apt install tmux
+```
+
+Or for arch:
+```
+sudo pacman -S tmux
+```
+
+## Configure Netkit to use Tmux
+
+There are two ways to enable tmux with Netkit-JH: through netkit.conf, or through commandline arguments to `lstart` or `vstart`.
+
+### Netkit.conf
+
+Edit the file at `$NETKIT_HOME/netkit.conf` and look for the following options:
+```
+USE_TMUX=FALSE
+TMUX_OPEN_TERMS=FALSE
+```
+
+USE_TMUX specifies whether to start the Netkit VM in a tmux session or not. This takes a value of 'TRUE' or 'FALSE', however if the option given is invalid, the behaviour will default to tmux being disabled.
+
+TMUX_OPEN_TERMS specifies whether a terminal should be automatically opened for the machine after the tmux session is created. This means at the end of the machine startup script, the `vconnect` command is run to attempt to connect to the tmux session in a new terminal. This will use the terminal specified by TERM_TYPE in your config. This will retry every 5 seconds, up to 20 times. If no tmux session exists by then, it will fail. TMUX_OPEN_TERMS can have a value of 'TRUE' or 'FALSE', however if the option given is invalid the behaviour will default to it being disabled. When TMUX_OPEN_TERMS is TRUE, you must be running the `lstart` / `vstart` command within a graphical environment, as it will attempt to open a graphical terminal. If it is FALSE, you can still connect manually with `vconnect -m MACHINE` - which is useful if you are running headless, for example through an SSH session.
+
+### Commandline Arguments
+
+The following arguments are available for both `lstart` and `vstart`.
+
+`--tmux-attached` - this runs machines with USE_TMUX=TRUE and TMUX_OPEN_TERMS=TRUE (see netkit.conf section above for what these variables do)
+
+`--tmux-detached` - this runs machines with USE_TMUX=TRUE and TMUX_OPEN_TERMS=FALSE (see netkit.conf section above for what these variables do)
+
+## How Use Tmux with Netkit-JH
+
+### Connecting To A Machine
+
+First check what machines you can connect to:
+
+```
+$ vconnect -l
+
+a: 1 windows (created Thu Jan  7 14:09:07 2021)
+```
+
+We see that there is a tmux session for machine a. We can connect to it with:
+
+```
+$ vconnect -m a --terminal
+```
+
+Now a new terminal should appear (the terminal specified by TERM_TYPE in netkit.conf). If you want to connect in the current terminal / shell (necessary if you're running headless) you can omit the `--terminal`.
+
+If you have `TMUX_OPEN_TERMS=TRUE` in your netkit.conf, or pass `--tmux-attached` to `lstart` or `vstart`, you shouldn't have to connect to the machine manually. However you might want to disconnect after a terminal has auto-opened, and then connect to it again later - the above is how you would do this.
+
+### General Tmux Use
+
+In tmux, most keyboard shortcuts require you to hit a 'leader' key, followed by a key specific to the shortcut. The current leader key we have configured is <kbd>ctrl</kbd> + <kbd>t</kbd>. This means to run a tmux shortcut you would do <kbd>ctrl</kbd> + <kbd>t</kbd>, then press the key for the command.
+
+Where you see <kbd>leader</kbd>, remember this means <kbd>ctrl</kbd> + <kbd>t</kbd>, unless you're using a custom tmux config.
+
+:::info
+Here we've used <kbd>ctrl</kbd> + <kbd>t</kbd> for the leader key, as <kbd>ctrl</kbd> + <kbd>b</kbd> is the default for tmux, and some people might want to connect to a machine's tmux session within a tmux session on the host, e.g. having different machines in different panes. Another popular leader key is <kbd>ctrl</kbd> + <kbd>a</kbd>, which is also the default leader key for GNU Screen - meaning this would also conflict. We thought <kbd>ctrl</kbd> + <kbd>t</kbd> would have the least conflicts and therefore be a good leader key, but if you want to propose a better default please open an issue on GitHub!
+:::
+
+### Disconnecting from a machine
+
+To disconnect from a tmux session, press <kbd>leader</kbd> then <kbd>d</kbd>. This will disconnect you from the session without closing it,
+so you can reconnect at any point while the machine is running.
+
+### Show Help Message
+
+There is a simple help file, with similar information to what is in this docs, which you can access within a Netkit Tmux session by pressing <kbd>leader</kbd> then <kbd>h</kbd>
+
+### The Netkit VM Pane
+
+The Netkit VM will run under window 'netkit-vm' pane '0'. If you are not on this pane all commands will go to the host not the Netkit machine!! 
+
+To help you, the status bar should change colour depending on what pane you are in. By default this is purple if you are in a netkit vm and blue if you are in a host shell.
+
+### Creating New Panes
+
+To create a new pane do <kbd>leader</kbd> followed by <kbd>%</kbd> - this will create a vertical split.
+
+If you want a horizontal split instead, you can use <kbd>leader</kbd> followed by <kbd>"</kbd>
+
+To move between panes you hit <kbd>leader</kbd> followed by <kbd>arrow-key</kbd> - with the arrow key depending on the direction you want to move from the current active pane. You also may be able to click on a with your mouse to move to it (depending on your terminal). 
+
+If you have made a split / splits, you may want to zoom into a specific pane. By hitting <kbd>leader</kbd> followed by <kbd>z</kbd> you will zoom into the active pane (the active pane will fill the whole window). To zoom out, just do this again.
+
+### Creating new windows
+
+To create a new window, do <kbd>leader</kbd> followed by <kbd>c</kbd>. This will create a window to the right of the current window. 
+
+To move between windows you can use <kbd>leader</kbd> <kbd>n</kbd> to go to the next window, or <kbd>leader</kbd> <kbd>p</kbd> to go to the previous.
+
+### Capturing Output
+
+Note the following will save the active pane, so if you want to capture the machine log, make sure you are on the netkit pane!
+
+To save output to /tmp hit <kbd>leader</kbd> then <kbd>s</kbd> (lower case 's').
+
+To save with a custom filename, use <kbd>leader</kbd> <kbd>S</kbd> (capital 'S').
+
+### Netkit Machine Shutdown / Failure
+
+When a machine shuts down it can be due to errors that we need to look at. In order to preserve the machine output, the tmux session will get renamed to MACHINENAME-dead, and the netkit pane will remain open.
