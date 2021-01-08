@@ -4,9 +4,16 @@
         <title>Netkit-JH Docs Blog</title>
         <link>https://netkit-jh.github.io/blog</link>
         <description>Netkit-JH Docs Blog</description>
-        <lastBuildDate>Mon, 04 Jan 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 08 Jan 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Using Tmuxinator with Netkit-JH]]></title>
+            <link>https://netkit-jh.github.io/blog/using-tmuxinator-with-netkit</link>
+            <guid>using-tmuxinator-with-netkit</guid>
+            <pubDate>Fri, 08 Jan 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Why is Tmuxinator Useful?]]></description>
+        </item>
         <item>
             <title><![CDATA[An Ode to the Netkit-JH Sponge]]></title>
             <link>https://netkit-jh.github.io/blog/odetothesponge</link>
