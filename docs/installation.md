@@ -61,4 +61,4 @@ installing Netkit. To do this you can use the provided change terminal script:
 > $NETKIT_HOME/change_terminal.sh
 ```
 
-![Screenshot of Using change_terminal.sh script](./assets/change_term.png)
+![Screenshot of Using change_terminal.sh script](/img/change_terminal.png)
