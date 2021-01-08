@@ -8,7 +8,7 @@ When adding new configuration options to netkit.conf, adding the configuration o
 
 This process is completed inside the `netkit-jh-build/core/setup_scripts/handle_config.sh` script.
 
-Let's look at adding a new option `TUTORIAL_OPTION`. Firstly, we'll update the netkit.conf file.
+Let's look at adding a new option `TUTORIAL_OPTION`. Firstly, we'll update the `netkit.conf` file.
 ```bash
 #!/bin/false
 
@@ -30,7 +30,16 @@ TUTORIAL_OPTION=123				# This is an example option which demonstrates how
 								# we should add new options to the netkit configuration.
 ```
 
-We've appended our new option to the end of the document.
+We've appended our new option to the end of the document. We'll also need to update `bin/script_utils` with new defaults for our option.
+
+```bash
+: ${MIN_MEM:=12}
+: ${MAX_MEM:=512}
+: ${MAX_SIMULTANEOUS_VMS:=5}
+: ${GRACE_TIME:=0}
+: ${USE_SUDO:="yes"}
+: ${TUTORIAL_OPTION:=123}
+```
 
 Now, we need to look at the `handle_config.sh` script. Notably, we can use the V1 -> V2 upgrade as a template.
 
