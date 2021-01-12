@@ -48,7 +48,7 @@ To compile all components of Netkit-JH (the kernel, the filesystem and the core 
   <TabItem value="linux">
 
 ```bash
-$ docker run --privileged -v $(pwd):/netkit-build -it netkitjh/netkit-builder-deb
+$ docker run --privileged --rm -v $(pwd):/netkit-build -it netkitjh/netkit-builder-deb
 ```
   </TabItem>
   <TabItem value="windows">
@@ -57,10 +57,10 @@ N.b. Windows is not frequently tested with Netkit-JH so use at your own risk!
 
 ```
 # With CMD
-> docker run --privileged -v %cd%:/netkit-build -it netkitjh/netkit-builder-deb
+> docker run --privileged --rm -v %cd%:/netkit-build -it netkitjh/netkit-builder-deb
 
 # With Powershell
-> docker run --privileged -v "$(pwd)":/netkit-build -it netkitjh/netkit-builder-deb
+> docker run --privileged --rm -v "$(pwd)":/netkit-build -it netkitjh/netkit-builder-deb
 ```
   </TabItem>
 </Tabs>
@@ -85,19 +85,19 @@ If you would like to pass your own arguments to `make`, you can add `-e MAKE_ARG
   <TabItem value="kern">
 
 ```bash
-$ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="build-kernel" -it netkit-builder-deb
+$ docker run --privileged --rm -v $(pwd):/netkit-build -e MAKE_ARGS="build-kernel" -it netkit-builder-deb
 ```
   </TabItem>
   <TabItem value="fs">
 
 ```bash
-$ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="build-fs" -it netkit-builder-deb
+$ docker run --privileged --rm -v $(pwd):/netkit-build -e MAKE_ARGS="build-fs" -it netkit-builder-deb
 ```
   </TabItem>
   <TabItem value="core">
 
 ```bash
-$ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="build-core" -it netkit-builder-deb
+$ docker run --privileged --rm -v $(pwd):/netkit-build -e MAKE_ARGS="build-core" -it netkit-builder-deb
 ```
   </TabItem>
   <TabItem value="clean">
@@ -105,7 +105,7 @@ $ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="build-core" -it 
 To clean up the files used in the build process run:
 
 ```bash
-$ docker run --privileged -v $(pwd):/netkit-build -e MAKE_ARGS="mrproper" -it netkit-builder-deb
+$ docker run --privileged --rm -v $(pwd):/netkit-build -e MAKE_ARGS="mrproper" -it netkit-builder-deb
 ```
   </TabItem>
 </Tabs>

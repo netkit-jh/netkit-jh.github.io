@@ -12,7 +12,7 @@ import TabItem from '@theme/TabItem';
 Tmux is available in most package managers - install with your package manager:
 
 <Tabs
-  defaultValue="Debian / Ubuntu"
+  defaultValue="deb"
   values={[
     {label: 'Debian / Ubuntu', value: 'deb'},
     {label: 'Arch Linux', value: 'arch'},
@@ -131,3 +131,13 @@ To save with a custom filename, use <kbd>leader</kbd> <kbd>S</kbd> (capital 'S')
 ### Netkit Machine Shutdown / Failure
 
 When a machine shuts down it can be due to errors that we need to look at. In order to preserve the machine output, the tmux session will get renamed to MACHINENAME-dead, and the netkit pane will remain open.
+
+## Advanced
+
+If you want to automate starting labs with tmux, take a look at the [blog post](/blog/using-tmuxinator-with-netkit) about tmuxinator.
+
+You can start using tmux with netkit without having to learn lots about tmux to begin with, but tmux can be more powerful if you learn more about windows, panes, shortcuts etc. Once you have a basic understanding of tmux you might find the following resources useful for getting a deeper understanding:
+
+- Daniel Miessler - Tactical Tmux [link](https://danielmiessler.com/study/tmux/)
+- The Valuable Dev - A Detailed tmux Walkthrough to Boost Your Productivity [link](https://thevaluable.dev/tmux-boost-productivity-terminal/)
+- Tony Narlock - The Tao of Tmux [link](https://leanpub.com/the-tao-of-tmux/read)
