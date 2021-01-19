@@ -9,6 +9,12 @@ module.exports = {
   organizationName: 'netkit-jh',
   projectName: 'netkit-jh.github.io',
   themeConfig: {
+    algolia: {
+      apiKey: '2591c94487b313550480c33e046065cb',
+      indexName: 'netkit-jh',
+      contextualSearch: true,
+      searchParameters: { 'facetFilters': ["type:content"]}
+  },
     navbar: {
       title: 'Netkit-JH Docs',
       logo: {
