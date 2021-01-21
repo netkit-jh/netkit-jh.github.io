@@ -6,8 +6,7 @@ This repo hosts the source code for https://netkit-jh.github.io which covers doc
 
 == Contributing
 
-Instructions for setting up a dev environment, making posts and making pull requests are on the [site](https://netkit-jh.github.io/docs/website/start).
-
+Instructions for setting up a dev environment, making posts and making pull requests are on the https://netkit-jh.github.io/docs/website/start[site].
 
 == ToDo
 
