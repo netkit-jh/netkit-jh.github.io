@@ -18,12 +18,12 @@ The final network mapping is illustrated below.
 ![ABR lab network diagram](https://user-images.githubusercontent.com/18099289/105396389-be33c880-5c17-11eb-9c7c-d88f300540ad.jpg)
 
 :::note
-Please ensure Netkit is installed correctly prior to following these steps. This lab will **not** work without Netkit running on your machine.
+Please ensure Netkit is [installed](../docs/) correctly prior to following these steps. This lab will **not** work without Netkit running on your machine.
 :::
 
 ## Creating `a`, `b`, and `r`
 
-Start by creating a folder titled `abr` in a `nklabs` directory and then change directory (`cd`) in that folder.
+Start by creating a folder for our lab, which we will name `abr`. You may want to do this within an `nklabs` directory, which can then be used for future labs. Change directory (`cd`) to this new `abr` folder.
 
 ```
 $ mkdir -p nklabs/abr
