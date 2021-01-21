@@ -42,7 +42,7 @@ Next, edit the contents of each file using your favourite text editor (e.g. `ged
 $ gedit {a,b,r}.startup lab.{conf,dep} &
 ```
 
-We are going to put in the parameters from the network diagram into the various files. Understanding the contents of the files is left as an exercise for the reader.
+We are going to put in the parameters from the network diagram into the various files. Understanding the contents of the files is left as an exercise for the reader. It is worth noting that you don't have to set a MAC address - Netkit will do this for you, however you can override this as shown below.
 
 :::note
 It is advisable to type out the contents of the files below manually rather than copy-pasting them.
@@ -68,11 +68,11 @@ route add default gw 10.0.0.1
 ### `r.startup`
 
 ```
-ifconfig eth1 hw ether 00:aa:aa:aa:aa:aa:aa
-ifconfig eth1 172.28.97.42/29
+ifconfig eth1 hw ether 00:81:81:81:81:81:81
+ifconfig eth1 172.28.97.41/29
 
-ifconfig eth2 hw ether 00:bb:bb:bb:bb:bb:bb
-ifconfig eth2 10.0.0.2/27
+ifconfig eth2 hw ether 00:82:82:82:82:82:82
+ifconfig eth2 10.0.0.1/27
 ```
 
 ### `lab.conf`
