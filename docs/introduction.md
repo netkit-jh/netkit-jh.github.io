@@ -15,7 +15,7 @@ a/  a.startup  b/  b.startup  lab.conf  lab.dep  r/  r.startup
 
 The final network mapping is illustrated below.
 
-![ABR lab network diagram](https://user-images.githubusercontent.com/18099289/105396389-be33c880-5c17-11eb-9c7c-d88f300540ad.jpg)
+![ABR lab network diagram](/img/abr_guide_network_diagram.jpg)
 
 :::note
 Please ensure Netkit is [installed](../docs/) correctly prior to following these steps. This lab will **not** work without Netkit running on your machine.
@@ -98,7 +98,7 @@ Finally, we are ready to launch the machines. Run `lstart` and you should see te
 $ lstart
 ```
 
-![Launching the terminals using lstart](https://user-images.githubusercontent.com/18099289/105393793-ae66b500-5c14-11eb-9c08-05d3d9d96093.png)
+![Launching the terminals using lstart](/img/abr_guide_terminal_lstart.png)
 
 To kill the machines, just run `lcrash` in your original terminal window.
 
