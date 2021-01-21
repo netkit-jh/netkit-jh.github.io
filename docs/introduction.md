@@ -6,7 +6,7 @@ sidebar_label: Introduction Lab
 
 ## Introduction to Netkit - ABR Lab
 
-For this lab we are going to create three machine `a`, `b`, and `r`, launch them using `lstart`, and finally analyse the contents of their `.startup` files. The resulting folder structure should look roughly as follows:
+For this lab we are going to create three machines `a`, `b`, and `r`, launch them using `lstart`, and finally analyse the contents of their `.startup` files. The resulting folder structure should look roughly as follows:
 
 ```
 $ ls
