@@ -1,0 +1,106 @@
+---
+id: debianbuild
+title: Building Netkit-JH
+sidebar_label: Building Netkit-JH
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+## Setup Your System for Building Netkit-JH
+
+:::note
+It is no longer necessary to use debian for building Netkit-JH, however it is a good idea to use
+a dev environment separate to your host. If you don't want to set up a vm for this, it might be
+easier to [use docker](dockerbuild)
+
+:::
+
+If you use a VM, you should configure the VM to have at least 4GB RAM, 30GB of storage and as much processing power as you can allocate it.
+
+### Install Packages
+
+To install the packages required for building run:
+
+```bash
+$ sudo apt install apt-utils git make debootstrap \
+    libreadline-dev init-system-helpers initscripts \
+    insserv bison flex gcc-multilib bc quilt xz-utils \
+    libvdeplug-dev
+```
+
+If you're not using a debian-based system you may need to find the equivalent of these packages for your distro as they may be named differently.
+
+:::tip
+If a command in the build process fails due to a missing program, have a look in the Dockerfile to see if there are any new packages in the 'apt-install' command which you have not yet installed - with the build process constantly changing we may be adding / removing packages from the build dependencies.
+:::
+
+## Download this Repo
+
+To get a local copy of this repo on the vm run:
+
+```bash
+$ git clone https://github.com/netkit-jh/netkit-jh-build.git
+$ cd netkit-jh-build
+```
+
+The following commands assume your current working directory is the root of this repository.
+
+## Running the Build Process
+
+To compile all components of Netkit-JH (the kernel, the filesystem and the core executables) run:
+
+```bash
+$ sudo make
+```
+
+If you would like to build specific components, you can pass commands to `make`. Some examples are shown below:
+
+<Tabs
+  defaultValue="kern"
+  values={[
+    {label: 'Kernel', value: 'kern'},
+    {label: 'Filesystem', value: 'fs'},
+    {label: 'Core', value: 'core'},
+    {label: 'Clean', value: 'clean'},
+  ]}>
+  <TabItem value="kern">
+
+```bash
+$ sudo make build-kernel
+
+```
+
+  </TabItem>
+  <TabItem value="fs">
+
+```bash
+$ sudo make build-fs
+
+```
+
+  </TabItem>
+  <TabItem value="core">
+
+```bash
+$ sudo make build-core
+
+```
+
+  </TabItem>
+  <TabItem value="clean">
+
+To clean up the files used in the build process run:
+
+```bash
+$ sudo make mrproper
+
+```
+
+  </TabItem>
+</Tabs>
+
+:::caution
+
+The kernel must be built before the filesystem! This is because the kernel modules are copied over to the filesystem as part of the fs build process. If you don't give any arguments to `make` this won't be an issue, but if you decide to make the filesystem with `build-fs` before the kernel has been built, it will not build successfully.
+:::
