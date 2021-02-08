@@ -35,27 +35,27 @@ $ sudo pacman -S tmux
 
 ## Configure Netkit to use Tmux
 
-There are two ways to enable tmux with Netkit-JH: through netkit.conf, or through commandline arguments to `lstart` or `vstart`.
+There are two ways to enable tmux with Netkit-JH: using options in netkit.conf, or through commandline arguments to `lstart` or `vstart`.
 
 ### Netkit.conf
 
 Edit the file at `$NETKIT_HOME/netkit.conf` and look for the following options:
 ```
-USE_TMUX=FALSE
-TMUX_OPEN_TERMS=FALSE
+VM_CON0=xterm
+TMUX_OPEN_TERMS=no
 ```
 
-USE_TMUX specifies whether to start the Netkit VM in a tmux session or not. This takes a value of 'TRUE' or 'FALSE', however if the option given is invalid, the behaviour will default to tmux being disabled.
+`VM_CON0` specifies what type of console to use as the primary console for the Netkit VM. This can be changed to `VM_CON0=tmux` to wrap the console in a tmux session.
 
-TMUX_OPEN_TERMS specifies whether a terminal should be automatically opened for the machine after the tmux session is created. This means at the end of the machine startup script, the `vconnect` command is run to attempt to connect to the tmux session in a new terminal. This will use the terminal specified by TERM_TYPE in your config. This will retry every 5 seconds, up to 20 times. If no tmux session exists by then, it will fail. TMUX_OPEN_TERMS can have a value of 'TRUE' or 'FALSE', however if the option given is invalid the behaviour will default to it being disabled. When TMUX_OPEN_TERMS is TRUE, you must be running the `lstart` / `vstart` command within a graphical environment, as it will attempt to open a graphical terminal. If it is FALSE, you can still connect manually with `vconnect -m MACHINE` - which is useful if you are running headless, for example through an SSH session.
+`TMUX_OPEN_TERMS` specifies whether a terminal should be automatically opened for the machine after the tmux session is created. This means at the end of the machine startup script, the `vconnect` command is run to attempt to connect to the tmux session in a new terminal. This will use the terminal specified by `TERM_TYPE` in your config. This will retry every 5 seconds, up to 20 times. If no tmux session exists by then, it will fail. If your startup takes a long time, you can always `vconnect` manually if this times out. `TMUX_OPEN_TERMS` can have a value of 'yes' or 'no', however if the option given is invalid the behaviour will default to it being disabled. When `TMUX_OPEN_TERMS` is set to 'yes', you must be running the `lstart` / `vstart` command within a graphical environment, as it will attempt to open a graphical terminal. If it is 'no', you can still connect manually with `vconnect -m MACHINE` - which is useful if you are running headless, for example through an SSH session.
 
 ### Commandline Arguments
 
 The following arguments are available for both `lstart` and `vstart`.
 
-`--tmux-attached` - this runs machines with USE_TMUX=TRUE and TMUX_OPEN_TERMS=TRUE (see netkit.conf section above for what these variables do)
+`--tmux-attached` - this runs machines with `VM_CON0=tmux` and `TMUX_OPEN_TERMS=yes` (see netkit.conf section above for what these variables do)
 
-`--tmux-detached` - this runs machines with USE_TMUX=TRUE and TMUX_OPEN_TERMS=FALSE (see netkit.conf section above for what these variables do)
+`--tmux-detached` - this runs machines with `VM_CON0=tmux` and `TMUX_OPEN_TERMS=no` (see netkit.conf section above for what these variables do)
 
 ## How Use Tmux with Netkit-JH
 
@@ -77,7 +77,7 @@ $ vconnect -m a --terminal
 
 Now a new terminal should appear (the terminal specified by TERM_TYPE in netkit.conf). If you want to connect in the current terminal / shell (necessary if you're running headless) you can omit the `--terminal`.
 
-If you have `TMUX_OPEN_TERMS=TRUE` in your netkit.conf, or pass `--tmux-attached` to `lstart` or `vstart`, you shouldn't have to connect to the machine manually. However you might want to disconnect after a terminal has auto-opened, and then connect to it again later - the above is how you would do this.
+If you have `TMUX_OPEN_TERMS=yes` in your netkit.conf, or pass `--tmux-attached` to `lstart` or `vstart`, you shouldn't have to connect to the machine manually. However you might want to disconnect after a terminal has auto-opened, and then connect to it again later - the above is how you would do this.
 
 ### General Tmux Use
 
@@ -131,6 +131,10 @@ To save with a custom filename, use <kbd>leader</kbd> <kbd>S</kbd> (capital 'S')
 ### Netkit Machine Shutdown / Failure
 
 When a machine shuts down it can be due to errors that we need to look at. In order to preserve the machine output, the tmux session will get renamed to MACHINENAME-dead, and the netkit pane will remain open.
+
+## Custom Config File
+
+If you would like to customise tmux, the best way is to create a config file at `$NETKIT_HOME/tools/tmux.conf.custom`. For guidance on customising tmux, check out [this](http://www.deanbodenham.com/learn/tmux-conf-file.html) blog post, and the [tmux man page](https://man7.org/linux/man-pages/man1/tmux.1.html).
 
 ## Advanced
 
