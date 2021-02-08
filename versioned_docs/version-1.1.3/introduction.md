@@ -18,7 +18,7 @@ The final network mapping is illustrated below.
 ![ABR lab network diagram](/img/abr_guide_network_diagram.jpg)
 
 :::note
-Please ensure Netkit is [installed](../docs/) correctly prior to following these steps. This lab will **not** work without Netkit running on your machine.
+Please ensure Netkit is [installed](./) correctly prior to following these steps. This lab will **not** work without Netkit running on your machine.
 :::
 
 ## Creating `a`, `b`, and `r`
