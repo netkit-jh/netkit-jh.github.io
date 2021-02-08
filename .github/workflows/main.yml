@@ -10,14 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         name: Checkout git repo
-      - name: Setup SSH Keys and known_hosts
-        env:
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
-        run: |
-          mkdir -p ~/.ssh
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-          ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
       - uses: b177y/actions-yarn@master
         name: Install yarn packages
         with:
@@ -31,4 +23,4 @@ jobs:
           CURRENT_BRANCH: main
           DEPLOYMENT_BRANCH: gh-pages
           USE_SSH: true
-          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+          SSH_PRIVATE_KEY: "${{ secrets.SSH_PRIVATE_KEY }}"
