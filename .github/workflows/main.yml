@@ -18,13 +18,11 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
           ssh-agent -a $SSH_AUTH_SOCK > /dev/null
           ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
-          which ssh
-          apt install openssh-client
-      - uses: borales/actions-yarn@v2.0.2
+      - uses: b177y/actions-yarn@master
         name: Install yarn packages
         with:
           cmd: install
-      - uses: borales/actions-yarn@v2.0.2
+      - uses: b177y/actions-yarn@master
         name: build and deploy site
         with:
           cmd: deploy
