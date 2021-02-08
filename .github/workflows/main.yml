@@ -5,21 +5,30 @@ on:
 
 jobs:
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+        name: Checkout git repo
+      - name: Setup SSH Keys and known_hosts
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
       - uses: borales/actions-yarn@v2.0.2
+        name: Install yarn packages
         with:
           cmd: install
       - uses: borales/actions-yarn@v2.0.2
+        name: build and deploy site
         with:
           cmd: deploy
         env:
           GIT_USER: ${{ github.actor }}
           CURRENT_BRANCH: main
           DEPLOYMENT_BRANCH: gh-pages
+          USE_SSH: true
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
